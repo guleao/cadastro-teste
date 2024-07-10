@@ -20,6 +20,8 @@
           <th>Cidade</th>
           <th>Telefone</th>
           <th>E-mail</th>
+          <th>Editar</th>
+          <th>Excluir</th>
         </tr>
       </thead>
 
@@ -39,6 +41,16 @@
           <td>{{ usuario.cidade }}</td>
           <td>{{ usuario.telefone }}</td>
           <td>{{ usuario.email }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="editarUsuario(usuario)">
+              Editar
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-danger" (click)="removerUsuario(usuario)">
+              Remover
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>

@@ -1,0 +1,113 @@
+<div class="container mt-5">
+  <form (ngSubmit)="atualizarUsuario()">
+    <div class="form-group">
+      <label for="tipoCliente">Tipo Cliente</label>
+      <select
+        class="form-control"
+        id="tipoCliente"
+        [(ngModel)]="usuario.tipoPessoa"
+        name="tipoCliente"
+      >
+        <option value="Fisica">Fisica</option>
+        <option value="Juridica">Juridica</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="cpf">CPF</label>
+      <input
+        type="text"
+        class="form-control"
+        id="cpf"
+        [(ngModel)]="usuario.cpf"
+        name="cpf"
+        (keyup)="formatarCpf()"
+      />
+    </div>
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nome"
+        [(ngModel)]="usuario.nome"
+        name="nome"
+        required
+      />
+    </div>
+    <div class="form-group" *ngIf="usuario.tipoPessoa === 'Juridica'">
+      <label for="nomeFantasia">Nome Fantasia</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nomeFantasia"
+        [(ngModel)]="usuario.nomeFantasia"
+        name="nomeFantasia"
+      />
+    </div>
+    <div class="form-group">
+      <label for="cep">CEP</label>
+      <input
+        type="text"
+        class="form-control"
+        id="cep"
+        [(ngModel)]="usuario.cep"
+        name="cep"
+        (blur)="buscarCep()"
+      />
+    </div>
+    <div class="form-group">
+      <label for="endereco">Endereço</label>
+      <input
+        type="text"
+        class="form-control"
+        id="endereco"
+        [(ngModel)]="usuario.endereco"
+        name="endereco"
+      />
+    </div>
+    <div class="form-group">
+      <label for="bairro">Bairro</label>
+      <input
+        type="text"
+        class="form-control"
+        id="bairro"
+        [(ngModel)]="usuario.bairro"
+        name="bairro"
+      />
+    </div>
+    <div class="form-group">
+      <label for="cidade">Cidade</label>
+      <input
+        type="text"
+        class="form-control"
+        id="cidade"
+        [(ngModel)]="usuario.cidade"
+        name="cidade"
+      />
+    </div>
+    <div class="form-group">
+      <label for="telefone">Telefone</label>
+      <input
+        type="text"
+        class="form-control"
+        id="telefone"
+        [(ngModel)]="usuario.telefone"
+        name="telefone"
+        (keyup)="formatarTelefone()"
+      />
+    </div>
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        [(ngModel)]="usuario.email"
+        name="email"
+      />
+    </div>
+    <button type="submit" class="btn btn-outline-success mt-3">
+      Atualizar
+    </button>
+  </form>
+</div>

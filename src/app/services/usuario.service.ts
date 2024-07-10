@@ -6,6 +6,9 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class UsuarioService {
+  getUsuario(codigo: string | null): any {
+    return this.usuarios.find((usuario) => usuario.codigo === codigo);
+  }
   private usuariosSubject = new BehaviorSubject<Usuario[]>([]);
   usuarios$ = this.usuariosSubject.asObservable();
   usuarios: Usuario[] = [];
@@ -18,5 +21,14 @@ export class UsuarioService {
     usuario.codigo = this.contador.toString();
     this.usuarios.push(usuario);
     this.contador++;
+  }
+
+  atualizarUsuario(usuarioAtualizado: Usuario) {
+    const index = this.usuarios.findIndex(
+      (usuario) => usuario.codigo === usuarioAtualizado.codigo,
+    );
+    if (index !== -1) {
+      this.usuarios[index] = usuarioAtualizado;
+    }
   }
 }
