@@ -99,10 +99,10 @@ export class FormularioComponent {
 
   formatarCpf() {
     let cpf = this.cpf;
-    cpf = cpf.replace(/\D/g, ''); // Remove tudo o que não é dígito
-    cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2'); // Insere um ponto entre o terceiro e o quarto dígitos
-    cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2'); // Insere um ponto entre o terceiro e o quarto dígitos
-    cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2'); // Insere um hífen entre o terceiro e o quarto dígitos
+    cpf = cpf.replace(/\D/g, '');
+    cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+    cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+    cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
     this.cpf = cpf;
   }
 
