@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-start mb-3">
+    <button class="btn btn-outline-dark" routerLink="/formulario">
+      Cadastrar novo usuário
+    </button>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th>Código</th>
+          <th>Tipo Cliente</th>
+          <th>Documento</th>
+          <th>Nome/Razão Social</th>
+          <th>Nome Fantasia</th>
+          <th>CEP</th>
+          <th>Endereço</th>
+          <th>Bairro</th>
+          <th>Cidade</th>
+          <th>Telefone</th>
+          <th>E-mail</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let usuario of usuarios">
+          <td>{{ usuario.codigo }}</td>
+          <td>{{ usuario.tipoPessoa }}</td>
+          <td>{{ usuario.cpf }}</td>
+          <td>{{ usuario.nome }}</td>
+          <td *ngIf="usuario.tipoPessoa === 'Juridica'; else vazio">
+            {{ usuario.nomeFantasia }}
+          </td>
+          <ng-template #vazio><td>-</td></ng-template>
+          <td>{{ usuario.cep }}</td>
+          <td>{{ usuario.endereco }}</td>
+          <td>{{ usuario.bairro }}</td>
+          <td>{{ usuario.cidade }}</td>
+          <td>{{ usuario.telefone }}</td>
+          <td>{{ usuario.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
